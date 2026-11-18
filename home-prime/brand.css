@@ -1,0 +1,7 @@
+/* لاست بلس: طبقة الهوية فوق القالب. الأساسي #624BE7 ونصه أبيض دائماً، وهوفره #5138D4 */
+:root,[data-theme="light"],[data-theme="dark"]{--lp:#624BE7;--lp-hover:#5138D4;--lp-ink:#FFFFFF}
+.pr-go,[data-theme="light"] .pr-go,[data-theme="dark"] .pr-go{--go:var(--lp);--go-ink:var(--lp-ink);--go-hover:var(--lp-hover)}
+.top .btn,.pr-btn,.en-btn{background:var(--lp);color:var(--lp-ink)}
+.top .btn:hover,.pr-btn:hover,.en-btn:hover{background:var(--lp-hover)}
+.top .btn:hover,.pr-btn:hover{box-shadow:0 12px 30px -12px rgba(98,75,231,.7)}
+.sx-btn{background:var(--lp);color:var(--lp-ink)}

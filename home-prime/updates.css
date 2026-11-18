@@ -1,0 +1,63 @@
+.ux{--s:.6923;--bg:#0D0D0D;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  --ti1:#1b1d21;--ti2:#33363c;--ti3:#5b5f68;--ti-hl:rgba(255,255,255,.16);--bezel:#040405;
+
+  position:relative;width:334px;max-width:100%;height:312px;margin:0 auto;overflow:hidden;
+  -webkit-mask-image:linear-gradient(transparent,#000 18%);mask-image:linear-gradient(transparent,#000 18%);
+  --snappy:cubic-bezier(.2,.9,.3,1)}
+@supports (transition-timing-function:linear(0,1)){
+
+  .ux{--snappy:linear(0,.0563,.1823,.3325,.4801,.6114,.7206,.807,.8725,.9202,.9536,.9761,.9904,.999,1.0037,1.0058,1.0063,1.0059,1.0051,1.0042,1.0033,1.0024,1.0017,1.0012,1)}
+}
+[data-theme="light"] .ux{--ti1:#a9aeb6;--ti2:#d3d6db;--ti3:#f7f8fa;--ti-hl:rgba(255,255,255,.85);--bezel:#0a0a0b}
+
+.ux-phone{position:absolute;bottom:28px;left:50%;width:286px;height:600px;margin-left:-143px;border-radius:46px;
+  background:linear-gradient(150deg,var(--ti1),var(--ti3) 18%,var(--ti2) 34%,var(--ti1) 55%,var(--ti2) 78%,var(--ti3) 92%,var(--ti1));
+  box-shadow:inset 0 0 0 .5px var(--ti-hl),0 14px 30px -18px var(--shade,rgba(0,0,0,.6))}
+.ux-island{position:absolute;z-index:3;top:20px;left:50%;width:74px;height:20px;margin-left:-37px;border-radius:10px;background:#000}
+.ux-screen{position:absolute;inset:3px;border:5px solid var(--bezel);border-radius:43px;overflow:hidden;
+
+  background:var(--bg) url(updates/lock-full.webp) center bottom/100% auto no-repeat}
+
+.ux-stack{--count:3;position:absolute;inset-inline:0;top:calc(592px*var(--s));height:0;
+  translate:0 calc((3 - var(--count)) * 31px * var(--s));transition:translate .55s var(--snappy);will-change:transform}
+
+.ux-note{--lv:0;position:absolute;top:0;left:calc(20px*var(--s));right:calc(20px*var(--s));
+  height:calc(64px*var(--s));border-radius:calc(24px*var(--s));color:#fff;
+  background:rgba(255,255,255,.16);-webkit-backdrop-filter:blur(18px) saturate(1.7);backdrop-filter:blur(18px) saturate(1.7);
+  box-shadow:inset 0 0 0 .5px rgba(255,255,255,.32),inset 0 1px 0 rgba(255,255,255,.2),0 8px 20px -10px rgba(0,0,0,.45);
+  translate:0 calc(var(--lv) * 32.9px * var(--s));scale:calc(1 - var(--lv) * .059);opacity:0;
+  transition:translate .55s var(--snappy),scale .55s var(--snappy),opacity .18s ease-out}
+.ux-note.l0{--lv:0;z-index:3}
+.ux-note.l1{--lv:1;z-index:2}
+.ux-note.l2{--lv:2;z-index:1}
+.ux-note.l3{--lv:3;z-index:0}
+.ux-note.in{opacity:1}
+.ux-note.in.l3{opacity:0;transition:translate .55s var(--snappy),scale .55s var(--snappy),opacity .3s ease-in}
+
+.ux-note.new{--from:0px;translate:0 var(--from);scale:.2;opacity:0;transition:none}
+
+.ux-ico{position:absolute;top:calc(13.5px*var(--s));right:calc(14px*var(--s));width:calc(37px*var(--s));height:calc(37px*var(--s));
+  border-radius:22.37%;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.12)}
+.ux-full{position:absolute;top:calc(11px*var(--s));right:calc(63px*var(--s));left:calc(16px*var(--s));
+  font-size:calc(15px*var(--s));line-height:calc(20px*var(--s));white-space:nowrap}
+.ux-full b{display:block;font-weight:700;text-align:right}
+.ux-full b em{font-style:normal}
+.ux-full span{display:block;font-weight:400;text-align:right}
+
+.ux-when{position:absolute;left:0;top:0;font-size:calc(13px*var(--s));line-height:calc(20px*var(--s));font-weight:400;font-style:normal;color:rgba(255,255,255,.6)}
+
+.ux-full span{transition:translate .2s cubic-bezier(.2,.8,.2,1)}
+.ux-full b,.ux-when{transition:translate .22s ease-in-out .08s}
+.ux-note.lined .ux-full b,.ux-note.lined .ux-when,.ux-note:not(.l0) .ux-full b,.ux-note:not(.l0) .ux-when{translate:0 calc(20px*var(--s))}
+.ux-note.lined .ux-full span,.ux-note:not(.l0) .ux-full span{translate:var(--shift,0px) 0}
+
+.pf-card.ux-card{display:flex;flex-direction:column}
+.pf-card.ux-card .pf-txt{padding:40px 40px 0}
+.pf-card.ux-card .pf-vis{flex:1;align-items:flex-end;min-height:0;padding:20px 48px 0}
+@media (max-width:639px){
+  .pf-card.ux-card .pf-txt{padding:32px 24px 0}
+  .pf-card.ux-card .pf-vis{padding:16px 16px 0}
+}
+
+.pf-card.ux-card .pf-vis{align-items:stretch}
+.pf-card.ux-card .ux{height:auto;min-height:312px}

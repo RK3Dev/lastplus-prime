@@ -1,0 +1,57 @@
+.s4{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;gap:56px;max-width:1080px;margin:72px auto 0;padding-inline:24px;--stay:6s}
+.s4-orbit .s3{max-width:none;margin:0;padding:0}
+.s4-orbit .s3-stage{max-width:500px;margin-inline:auto}
+
+.s3-rings{animation:s3-turn 140s linear infinite;will-change:transform}
+.s3-rings g{animation:none}
+
+.s4:not(.run) .s3-rings{animation-play-state:paused}
+
+.s4-comet{position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;opacity:0;pointer-events:none;will-change:transform,opacity;
+  background:radial-gradient(circle,#fff 0,#DCE8FF 38%,rgba(171,159,242,0) 72%);box-shadow:0 0 14px 5px rgba(171,159,242,.5)}
+.s4-comet.t1{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;box-shadow:0 0 10px 3px rgba(171,159,242,.35)}
+.s4-comet.t2{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;box-shadow:0 0 8px 2px rgba(171,159,242,.25)}
+
+.s3-core{isolation:isolate;transition:none}
+.s3-core::before{content:"";position:absolute;inset:-46%;z-index:-1;border-radius:50%;background:radial-gradient(closest-side,rgba(171,159,242,.42),rgba(171,159,242,.12) 55%,transparent);opacity:0;transition:opacity 1s cubic-bezier(.22,1,.36,1);will-change:opacity}
+.pf-sol.ready .s3-core{box-shadow:0 24px 60px -24px rgba(0,0,0,.9)}
+.pf-sol.ready .s3-core::before{opacity:1}
+
+.s4-list{--row:58px;--open:118px;position:relative;height:calc(var(--row) * 5 + var(--open));margin:0;padding:0;list-style:none;overflow:hidden}
+.s4-list::after{content:"";position:absolute;inset:auto 0 0;z-index:1;height:1px;background:rgba(255,255,255,.06)}
+.s4-item{position:absolute;inset-inline:0;top:0;height:var(--open);overflow:hidden;background:#020409;box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+  transform:translateY(calc(var(--i,0) * var(--row) + var(--after,0) * (var(--open) - var(--row))));
+  transition:transform .7s cubic-bezier(.22,1,.36,1);will-change:transform}
+.s4-item.after{--after:1}
+.s4-row{display:flex;align-items:center;gap:14px;width:100%;height:var(--row);padding:0 18px 0 0;padding-inline-start:18px;border:0;background:none;color:rgba(255,255,255,.55);font:inherit;font-size:17px;line-height:1.4;text-align:start;cursor:pointer;transition:color .6s}
+.s4-row:hover{color:rgba(255,255,255,.85)}
+.s4-row:focus-visible{outline:2px solid #AB9FF2;outline-offset:-2px;border-radius:10px}
+.s4-ic{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1);color:rgba(255,255,255,.85);transition:background-color .6s,box-shadow .6s,color .6s}
+.s4-ic svg{width:17px;height:17px}
+.s4-item.on .s4-row{color:#fff;font-weight:700}
+.s4-item.on .s4-ic{background:rgba(171,159,242,.12);box-shadow:inset 0 0 0 1px rgba(171,159,242,.38);color:#C4BBF7}
+.s4-text{margin:0;padding-inline:66px 18px;font-size:15px;line-height:27px;color:rgba(255,255,255,.7);opacity:0;translate:0 4px;transition:opacity .5s .12s,translate .6s .12s cubic-bezier(.22,1,.36,1)}
+.s4-item.on .s4-text{opacity:1;translate:0 0}
+
+.s4-item::before{content:"";position:absolute;inset-inline-start:0;top:14px;bottom:14px;width:2px;border-radius:2px;background:rgba(255,255,255,.07);opacity:0;transition:opacity .4s}
+.s4-item.on::before{opacity:1}
+.s4-bar{position:absolute;inset-inline-start:0;top:14px;width:2px;height:calc(var(--open) - 28px);border-radius:2px;background:#AB9FF2;transform:scaleY(0);transform-origin:top;opacity:0;will-change:transform}
+.s4.run .s4-item.on .s4-bar{opacity:1;animation:s4-fill var(--stay) linear forwards}
+@keyframes s4-fill{to{transform:scaleY(1)}}
+
+@media (max-width:1023px){
+  .s4{grid-template-columns:1fr;gap:32px;max-width:620px}
+  .s4-orbit{order:-1}
+}
+@media (max-width:639px){
+  .s4{margin-top:44px;padding-inline:16px;gap:24px}
+  .s4-list{--row:54px;--open:136px}
+  .s4-row{font-size:16px;gap:12px;padding-inline-start:14px}
+  .s4-ic{width:32px;height:32px}
+  .s4-text{padding-inline:58px 12px;font-size:14.5px;line-height:26px}
+}
+@media (prefers-reduced-motion:reduce){
+  .s3-rings{animation:none}
+  .s4-item,.s4-text,.s4-row,.s4-ic,.s3-core::before{transition:none}
+  .s4.run .s4-item.on .s4-bar{animation:none;opacity:0}
+}

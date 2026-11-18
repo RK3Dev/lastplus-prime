@@ -1,0 +1,38 @@
+.pf-vis.cats-vis{min-height:300px;padding:0}
+.cx{--card:#1C1C1E;--ink1:#F6F5FB;--ring:transparent;--lift:rgba(0,0,0,.06);
+  position:absolute;inset:0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(transparent,#000 20%,#000 80%,transparent);mask-image:linear-gradient(transparent,#000 20%,#000 80%,transparent)}
+[data-theme="light"] .cx{--card:#FFFFFF;--ink1:#191820;--ring:rgba(25,24,32,.08)}
+.cx-track{position:absolute;inset-inline:0;top:0;will-change:transform;
+  animation:cx-up var(--dur,14s) linear var(--delay,0s) infinite}
+
+.cx.idle .cx-track{animation:none}
+@keyframes cx-up{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,var(--shift,-50%),0)}}
+
+.cx-set{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:0 32px 10px}
+.cx-chip{box-sizing:border-box;display:inline-flex;align-items:center;gap:6px;height:36px;padding-inline:16px;border-radius:16px;
+  background:var(--card);box-shadow:0 0 0 1px var(--ring),0 4px 24px var(--lift);
+  font-size:14px;font-weight:700;line-height:1;white-space:nowrap;color:var(--ink1)}
+.cx-chip b{font-weight:inherit}
+.cx-chip i{flex:none;width:var(--w);height:var(--h);background-color:var(--c);
+  -webkit-mask-position:center;mask-position:center;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+
+@media (max-width:639px){
+  .cx-set{padding-inline:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .cx-track{animation-play-state:paused}
+}
+
+.cx[data-cols] .cx-set{display:grid;justify-content:center;gap:10px}
+.cx[data-cols="1"] .cx-set{grid-template-columns:minmax(0,248px)}
+.cx[data-cols="2"] .cx-set{grid-template-columns:repeat(2,minmax(0,184px))}
+.cx[data-cols] .cx-chip{width:100%}
+.cx[data-cols] .cx-chip i{width:28px;height:28px;-webkit-mask-size:var(--w) var(--h);mask-size:var(--w) var(--h)}
+@media (max-width:639px){
+  .cx[data-cols="2"] .cx-set{grid-template-columns:minmax(0,248px)}
+}
+
+.cx[data-arrange="balanced"] .cx-set{flex-direction:column;flex-wrap:nowrap;align-items:center}
+.cx[data-arrange="balanced"] .cx-row{display:flex;justify-content:center;gap:10px}
+.cx[data-arrange="balanced"] .cx-set.cx-flow{flex-direction:row;flex-wrap:wrap;align-items:normal}

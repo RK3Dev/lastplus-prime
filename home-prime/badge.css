@@ -1,0 +1,29 @@
+.hb-island{display:inline-flex;align-items:center;gap:9px;height:34px;padding-inline:14px 16px;border-radius:999px;background:#000;color:#fff;
+  font-size:13.5px;line-height:1;white-space:nowrap;box-shadow:0 0 0 .5px rgba(255,255,255,.14);
+
+  --hb-small:calc(14px * 2 + 13px * 808 / 672);
+  transform-origin:calc(100% - var(--hb-small) / 2) 50%}
+.hb-js:not(.hb-ready) .hb-island,.hb-js:not(.hb-ready) .pr-hero .pr-in{visibility:hidden;animation:none}
+
+.hb-js:not(.hb-ready) .top .nav,.hb-js:not(.hb-ready) .top .btn,.hb-js:not(.hb-ready) .pr-shots .pr-rings,.hb-js:not(.hb-ready) .pr-ipad,.hb-js:not(.hb-ready) .pr-iphone{visibility:hidden;animation:none}
+.hb-ready .hb-island{animation:hb-come .45s cubic-bezier(.34,1.3,.64,1) both,hb-grow .75s cubic-bezier(.32,.72,0,1) .5s both}
+[data-theme="light"] .hb-island{box-shadow:none}
+
+.hb-mark{display:block;flex:none;height:15px;aspect-ratio:88/83;background:currentColor;
+  -webkit-mask:url(../home-lux/logo/mark-tight.svg) center/contain no-repeat;mask:url(../home-lux/logo/mark-tight.svg) center/contain no-repeat}
+.hb-island .hb-t{display:flex;gap:5px}
+.hb-ready .hb-island .hb-t{animation:hb-fade .5s ease .55s both}
+.hb-island b{font-weight:500}
+.hb-island .hb-t span{color:rgba(255,255,255,.62)}
+
+@keyframes hb-come{0%{opacity:0;scale:.6}30%{opacity:1}100%{opacity:1;scale:1}}
+@keyframes hb-grow{from{clip-path:inset(0 0 0 calc(100% - var(--hb-small)) round 999px)}to{clip-path:inset(0 0 0 0 round 999px)}}
+@keyframes hb-fade{from{opacity:0}to{opacity:1}}
+
+@media (max-width:399px){
+  .hb-island{height:32px;gap:8px;padding-inline:12px 14px;font-size:13px;--hb-small:calc(12px * 2 + 12px * 808 / 672)}
+  .hb-mark{height:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .hb-ready .hb-island,.hb-ready .hb-island .hb-t{animation:none}
+}

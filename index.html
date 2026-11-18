@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="color-scheme" content="dark light">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#09080E">
 <title>اشتراك لاست ستور للآيفون والآيباد | لاست بلس</title>
 <meta name="description" content="اشتراك لاست ستور للآيفون والآيباد لمدة سنة. 12 ألف تطبيق ولعبة بمزايا مفتوحة، وتحديث يومي، من متجر سعودي موثّق في معروف.">
 <link rel="icon" href="home-prime/lastplus-icon.png">
@@ -11,7 +12,7 @@
 <script src="home-prime/guard.js"></script>
 <script>
 
-(() => { let t; try { t = localStorage.getItem("lp-theme"); } catch (e) {} if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"; document.documentElement.dataset.theme = t; document.documentElement.classList.add("hb-js"); })();
+(() => { document.documentElement.dataset.theme = "dark"; document.documentElement.classList.add("hb-js"); })();
 </script>
 <link rel="preload" href="home-lux/fonts/thmanyahsans-Bold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="home-lux/fonts/thmanyahsans-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -61,10 +62,7 @@
       <a href="#faq">الأسئلة</a>
     </nav>
     <div class="pr-acts">
-      <button class="pr-mode" id="mode" type="button" aria-label="الوضع الفاتح أو الداكن">
-        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5l1.5 1.5M17 17l1.5 1.5M5.5 18.5 7 17M17 7l1.5-1.5"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.4 8.4 0 1 0 10.8 10.8z"/></svg>
-      </button>
+      
       <a class="btn btn-sm" href="#plans">اشترك الآن</a>
     </div>
   </div>

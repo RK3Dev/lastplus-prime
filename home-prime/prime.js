@@ -5,15 +5,7 @@
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const calm = matchMedia("(prefers-reduced-motion:reduce)").matches;
 
-  const scheme = matchMedia("(prefers-color-scheme: light)");
-  let chosen = null;
-  try { chosen = localStorage.getItem("lc-theme"); } catch (e) {   }
-  scheme.addEventListener("change", (e) => { if (chosen !== "light" && chosen !== "dark") root.dataset.theme = e.matches ? "light" : "dark"; });
-  $("#mode").addEventListener("click", () => {
-    chosen = root.dataset.theme === "light" ? "dark" : "light";
-    root.dataset.theme = chosen;
-    try { localStorage.setItem("lc-theme", chosen); } catch (e) {   }
-  });
+  root.dataset.theme = "dark";
 
   const seen = new IntersectionObserver((list) => list.forEach((e) => {
     if (!e.isIntersecting) return;

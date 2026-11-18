@@ -1,0 +1,3 @@
+/* ad-safe twin: small additions only */
+.fq-ans a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+@media (min-width:1024px){.pf-card.dup-card .pf-vis{min-height:380px}}

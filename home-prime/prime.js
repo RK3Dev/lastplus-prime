@@ -202,7 +202,7 @@
 
   const JOBS = [
     [$("#deck"), 900, () => load("home-lux-deck/deck.js")],
-    [$("#end"), 2400, () => load("home-lux-end/glass.js").then(() => load("home-lux-end/end.js"))],
+    [$("#end"), 2400, () => load("home-lux-end/glass-land.js").then(() => load("home-lux-end/end-land.js"))],
     [$("#foot"), 3600, () => load("home-lux/word.js")],
   ].filter(([el]) => el).map(([el, after, run]) => {
     let done = false;
